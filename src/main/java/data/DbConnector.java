@@ -6,8 +6,8 @@ public class DbConnector {
 
 	private static final String HOST ="localhost";
 	private static final String PORT ="3306";
-	private static final String USER ="root";
-	private static final String PASSWORD ="leonguruciaga162";
+	private static final String USER ="usuario1";
+	private static final String PASSWORD ="vikingo22";
 	private static final String DB ="javatpdb";
 	
 	public static Connection getConnection() throws SQLException{

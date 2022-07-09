@@ -9,10 +9,6 @@ CREATE DATABASE javatpdb;
 
 USE javatpdb;
 
-DROP USER IF EXISTS 'usuario1'@'localhost';
-CREATE USER 'usuario1'@'localhost' IDENTIFIED BY 'vikingo22';
-GRANT SELECT, INSERT, UPDATE, DELETE ON javatpdb.* TO 'usuario1'@'localhost';
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -322,6 +318,10 @@ CREATE TABLE `zona_fletero` (
   CONSTRAINT `fk_zona_zona_fletero` FOREIGN KEY (`id_zona`) REFERENCES `zona` (`id_zona`) ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP USER IF EXISTS 'usuario1'@'localhost';
+CREATE USER 'usuario1'@'localhost' IDENTIFIED BY 'vikingo22';
+GRANT SELECT, INSERT, UPDATE, DELETE ON javatpdb.* TO 'usuario1'@'localhost';
 
 --
 -- Dumping data for table `zona_fletero`
