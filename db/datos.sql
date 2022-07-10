@@ -1,3 +1,4 @@
+-- Cada vez que agreguen datos a la base de datos escribir los INSERTS aca
 INSERT INTO `javatpdb`.`fletero` (`nombre`, `apellido`, `telefono`, `mail`) 
 VALUES 	('Gerardo', 'Zuqui', '3417841484', 'gzuqui@gmail.com'), 
 		('Bernardo', 'Perez', '3364457505', 'bepe90@gmail.com'),
