@@ -8,7 +8,17 @@ public class Fletero {
 	private String telefono;
 	private String mail;
 	
-	public Fletero() {
+	public Fletero() {}
+	
+	public Fletero(int id) {
+		this.id = id;
+	}
+
+	public Fletero(String nombre, String apellido, String telefono, String mail) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.mail = mail;
 	}
 
 	public Fletero(int id, String nombre, String apellido, String telefono, String mail) {

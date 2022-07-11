@@ -21,20 +21,34 @@ public class ui_test_fletero {
 		 * ya se probaron, y descomentar los que
 		 * se quieran testear
 		 */
-		list();
-	}
+		//add(new Fletero("Daniel", "Argento", "3416578957", "daniargento.20@gmail.com"));
+		//update(new Fletero(6, "Daniel", "Argentini", "3416578957", "daniA@yahoo.com.ar"));
+		//delete(new Fletero(6));
+		//list();
+	} 
 	
 	/* Aca se agregan los metodos de la UI
 	 * estos utilizaran el DAO 
 	 */
 	private static void list() {
-		try {
-			LinkedList<Fletero> fleteros = fDao.list();
-			for(Fletero f: fleteros) {
-				System.out.println("id: " + String.valueOf(f.getId()) + " nombre: " + f.getNombre() + " apellido: " + f.getApellido());
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		LinkedList<Fletero> fleteros = fDao.list();
+		for(Fletero f: fleteros) {
+			System.out.println("id: " + String.valueOf(f.getId()) + " nombre: " + f.getNombre() + " apellido: " + f.getApellido());
 		}
+	}
+	
+	private static void add(Fletero f) {
+		f = fDao.add(f);
+		System.out.println("Se agrego el fletero, su id es: " + String.valueOf(f.getId()));
+	}
+	
+	private static void update(Fletero f) {
+		fDao.update(f);
+		System.out.println("Se actualizo el fletero con exito");
+	}
+	
+	private static void delete(Fletero f) {
+		fDao.delete(f);
+		System.out.println("Se borro el fletero con exito");
 	}
 }

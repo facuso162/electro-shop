@@ -12,7 +12,7 @@ public class FleteroDAO {
 	private final String UPDATE_QUERY = "UPDATE fletero SET nombre = ?, apellido = ?, telefono = ?, mail = ? WHERE id_fletero = ?";
 	private final String DELETE_QUERY = "DELETE FROM fletero WHERE id_fletero = ?";
 	
-	public LinkedList<Fletero> list() throws SQLException {
+	public LinkedList<Fletero> list() {
 		Connection conn = null;
 		Statement s = null;
 		ResultSet rs = null;
@@ -38,7 +38,7 @@ public class FleteroDAO {
 		return fleteros;
 	}
 	
-	public Fletero add(Fletero f) throws SQLException {
+	public Fletero add(Fletero f) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet keyRS = null;
@@ -54,7 +54,7 @@ public class FleteroDAO {
 			if (keyRS != null && keyRS.next()) {
 				f.setId(keyRS.getInt(1));
 			}
-		} catch (Exception e){
+		} catch (SQLException e){
 			e.printStackTrace(System.out);
 		} finally {
 			if (keyRS != null) {DbConnector.close(keyRS);};
@@ -64,7 +64,7 @@ public class FleteroDAO {
 		return f;
 	}
 	
-	public void update(Fletero f) throws SQLException {
+	public void update(Fletero f) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
@@ -74,8 +74,9 @@ public class FleteroDAO {
 			ps.setString(2, f.getApellido());
 			ps.setString(3, f.getTelefono());
 			ps.setString(4, f.getMail());
+			ps.setInt(5, f.getId());
 			ps.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace(System.out);
 		} finally {
 			if (ps != null) {DbConnector.close(ps);};
@@ -83,7 +84,7 @@ public class FleteroDAO {
 		}
 	}
 	
-	public void delete(Fletero f) throws SQLException {
+	public void delete(Fletero f) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
@@ -91,7 +92,7 @@ public class FleteroDAO {
 			ps = conn.prepareStatement(DELETE_QUERY);
 			ps.setInt(1, f.getId());
 			ps.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace(System.out);
 		} finally {
 			if (ps != null) {DbConnector.close(ps);};
